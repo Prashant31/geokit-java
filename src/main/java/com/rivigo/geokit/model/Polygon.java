@@ -23,7 +23,12 @@ public class Polygon {
         }
     }
 
-
+    /**
+     * Checks if a point i.e LatLng Object lies in between the polygon
+     *
+     * @param point
+     * @return
+     */
     public Boolean contains(LatLng point){
         LatLng lastPoint = this.points.get(this.points.size()-1);
         Boolean oddNodes = false;
@@ -44,6 +49,11 @@ public class Polygon {
         return oddNodes;
     }
 
+
+    /**
+     * Calculates the centroid of the polygon
+     * @return
+     */
     public LatLng centroid(){
         Double centroidLat = 0.0;
         Double centroidLng = 0.0;

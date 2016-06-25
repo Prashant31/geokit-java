@@ -27,6 +27,15 @@ public class Bound {
         return sw.midpoint_to(ne);
     }
 
+    /**
+     *
+     * returns an instance of bounds which completely encompases the given circle
+     *
+     * @param point
+     * @param radius
+     * @param options
+     * @return
+     */
     public static Bound from_point_and_radius(LatLng point, Double radius, Map<String, String>options){
         LatLng p0 = point.endpoint(0d, radius, options);
         LatLng p90 = point.endpoint(90d, radius, options);
@@ -47,11 +56,20 @@ public class Bound {
         return res;
     }
 
-
+    /**
+     * returns true if the bounds crosses the international dateline
+     * @return
+     */
     private Boolean crossesMeridian(){
         return  sw.getLng() > ne.getLng();
     }
 
+    /**
+     * Returns true if the candidate object is logically equal. Logical
+     * equivalence is true if the lat and lng attributes are the same for both
+     * @param target
+     * @return
+     */
     @Override
     public boolean equals(Object target){
         Bound bound = (Bound) target;
