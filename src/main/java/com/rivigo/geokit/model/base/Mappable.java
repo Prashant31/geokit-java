@@ -172,11 +172,11 @@ public class Mappable {
     }
 
     private String getFormula(String formula){
-        List<String> supportedfFormulae = Arrays.asList(SUPPORTED_FORMULAE);
+        List<String> supportedFormulae = Arrays.asList(SUPPORTED_FORMULAE);
         if(formula == null){
             return DEFAULT_FORMULA;
         }
-        if(supportedfFormulae.contains(formula)){
+        if(supportedFormulae.contains(formula)){
             return formula;
         }else {
             throw new UnsupportedUnitException(String.format("%s is not a supported Unit", formula));
