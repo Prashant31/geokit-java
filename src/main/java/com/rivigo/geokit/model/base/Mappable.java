@@ -15,8 +15,8 @@ public class Mappable {
     private static final Double PI = Math.PI;
     private static final Double PI_DIV_RAD = Math.PI / 180;
 
-    private static final  String[] SUPPORTED_UNITS = {"miles, kms"};
-    private static final  String[] SUPPORTED_FORMULAE = {"sphere", "flat"};
+    private static final  String[] SUPPORTED_UNITS = new String[]{"miles", "kms"};
+    private static final  String[] SUPPORTED_FORMULAE = new String[]{"sphere", "flat"};
     private static final String DEFAULT_UNIT = "kms";
     private static final String DEFAULT_FORMULA =  "sphere";
 
@@ -154,7 +154,7 @@ public class Mappable {
             return optionMap;
         }
         optionMap.put("unit", this.getUnit(options.get("unit")));
-        optionMap.put("formula", this.getUnit(options.get("formula")));
+        optionMap.put("formula", this.getFormula(options.get("formula")));
         return optionMap;
     }
 

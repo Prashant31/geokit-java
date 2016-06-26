@@ -7,7 +7,6 @@ import lombok.Setter;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -53,6 +52,29 @@ public class LatLng extends Mappable{
         return distanceBetween(this, other, options);
     }
 
+    /**
+     *
+     */
+
+    public Double distanceTo(LatLng other){
+        return distanceBetween(this, other, null);
+    }
+
+    /**
+     *
+     */
+
+    public Double distanceBetween(LatLng other){
+        return distanceBetween(this, other);
+    }
+
+    /**
+     *
+     */
+
+    public Double distanceBetween(LatLng other, Map<String,String> options){
+        return distanceBetween(this, other, options);
+    }
     /**
      * It behaves as an alias to distance To
      * logically both means the same thing but logically both method names should
