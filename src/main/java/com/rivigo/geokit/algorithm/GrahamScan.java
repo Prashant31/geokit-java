@@ -41,6 +41,12 @@ public class GrahamScan {
         return new Polygon(polygonPoints);
     }
 
+    public static LatLng getCentroid (List <LatLng> points) throws IllegalArgumentException {
+        List<LatLng> polygonPoints = getPolygonSequence(points);
+        Polygon polygon = new Polygon(polygonPoints);
+        return polygon.centroid();
+    }
+
 
     public static List<LatLng> getPolygonSequence(List<LatLng> points) throws IllegalArgumentException {
 
