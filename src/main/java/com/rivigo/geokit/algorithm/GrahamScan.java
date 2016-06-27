@@ -1,7 +1,7 @@
 package com.rivigo.geokit.algorithm;
 
-import com.rivigo.geokit.model.LatLng;
-import com.rivigo.geokit.model.Polygon;
+import com.rivigo.geokit.LatLng;
+import com.rivigo.geokit.Polygon;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
@@ -91,15 +91,14 @@ public class GrahamScan {
 
         final LatLng lowest = getLowestPoint(points);
 
-        TreeSet<LatLng> set = new TreeSet<LatLng>(new Comparator<LatLng>() {
+        Set<LatLng> set = new TreeSet<LatLng>(new Comparator<LatLng>() {
             @Override
             public int compare(LatLng a, LatLng b) {
 
-                if(a == b || a.equals(b)) {
+                if(a.equals(b)) {
                     return 0;
                 }
 
-                // use longs to guard against int-underflow
                 double thetaA = Math.atan2(a.getLat() - lowest.getLng(), a.getLat() - lowest.getLat());
                 double thetaB = Math.atan2(b.getLat() - lowest.getLng(), b.getLat() - lowest.getLat());
 

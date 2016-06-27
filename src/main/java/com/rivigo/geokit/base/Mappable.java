@@ -1,7 +1,7 @@
-package com.rivigo.geokit.model.base;
+package com.rivigo.geokit.base;
 
 import com.rivigo.geokit.exceptions.UnsupportedUnitException;
-import com.rivigo.geokit.model.LatLng;
+import com.rivigo.geokit.LatLng;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;

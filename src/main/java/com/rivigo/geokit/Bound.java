@@ -1,4 +1,4 @@
-package com.rivigo.geokit.model;
+package com.rivigo.geokit;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
