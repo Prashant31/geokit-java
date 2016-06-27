@@ -1,6 +1,6 @@
 package com.rivigo.geokit.algorithm;
 
-import com.rivigo.geokit.LatLng;
+import com.rivigo.geokit.model.LatLng;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -42,7 +42,7 @@ public class GrahamScanTest {
     }
 
     @Test
-    public void getConvexHullTest() {
+    public void getPolyGonSequenceTest() {
 
         /*
             6 |       d

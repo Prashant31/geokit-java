@@ -1,15 +1,13 @@
-package com.rivigo.geokit;
+package com.rivigo.geokit.model;
 
-import com.rivigo.geokit.base.Mappable;
+import com.rivigo.geokit.model.base.Mappable;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import java.awt.*;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by prashant on 6/25/16.
@@ -165,11 +163,22 @@ public class LatLng extends Mappable implements Comparable{
     @Override
     public boolean equals(Object object){
         LatLng target = (LatLng) object;
-        return (lat == target.lat && lng == target.lng);
+        return (lat.equals(target.getLat()) && lng.equals(target.getLng()));
     }
 
+
+    @Override
     public int compareTo (Object object) {
         LatLng o = (LatLng) object;
+        return compareFunction(o);
+    }
+
+    public int compare(Object object){
+        return compareTo(object);
+    }
+
+
+    private int compareFunction(LatLng o){
         if (lat.compareTo(o.getLat()) < 0)
             return -1;
         else if (lat.compareTo(o.getLat()) > 0)

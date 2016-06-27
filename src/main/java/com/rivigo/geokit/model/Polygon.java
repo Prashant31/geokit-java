@@ -1,5 +1,6 @@
-package com.rivigo.geokit;
+package com.rivigo.geokit.model;
 
+import com.rivigo.geokit.model.LatLng;
 import lombok.Getter;
 import lombok.Setter;
 

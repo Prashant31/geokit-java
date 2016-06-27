@@ -1,7 +1,7 @@
 package com.rivigo.geokit.algorithm;
 
-import com.rivigo.geokit.LatLng;
-import com.rivigo.geokit.Polygon;
+import com.rivigo.geokit.model.LatLng;
+import com.rivigo.geokit.model.Polygon;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
@@ -99,8 +99,8 @@ public class GrahamScan {
                     return 0;
                 }
 
-                double thetaA = Math.atan2(a.getLat() - lowest.getLng(), a.getLat() - lowest.getLat());
-                double thetaB = Math.atan2(b.getLat() - lowest.getLng(), b.getLat() - lowest.getLat());
+                double thetaA = Math.atan2(a.getLng() - lowest.getLng(), a.getLat() - lowest.getLat());
+                double thetaB = Math.atan2(b.getLng() - lowest.getLng(), b.getLat() - lowest.getLat());
 
                 if(thetaA < thetaB) {
                     return -1;
@@ -111,12 +111,10 @@ public class GrahamScan {
                 else {
                     // collinear with the 'lowest' point, let the point closest to it come first
 
-                    // use longs to guard against int-over/underflow
-                    double distanceA = Math.sqrt(((lowest.getLat() - a.getLat()) * (lowest.getLat() - a.getLat())) +
-                            ((lowest.getLng() - a.getLng()) * (lowest.getLng() - a.getLng())));
-                    double distanceB = Math.sqrt(((lowest.getLat() - b.getLng()) * (lowest.getLat() - b.getLng())) +
-                            ((lowest.getLng() - b.getLng()) * (lowest.getLng() - b.getLng())));
-
+                    double distanceA = Math.sqrt(Math.pow(lowest.getLat() - a.getLat(), 2)
+                            + Math.pow(lowest.getLng() - a.getLng(), 2));
+                    double distanceB = Math.sqrt(Math.pow(lowest.getLat() - b.getLat(), 2)
+                            + Math.pow(lowest.getLng() - b.getLng(), 2));
                     if(distanceA < distanceB) {
                         return -1;
                     }

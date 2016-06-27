@@ -1,6 +1,5 @@
 package com.rivigo.geokit.model;
 
-import com.rivigo.geokit.LatLng;
 import junit.framework.TestCase;
 
 import java.util.HashMap;
