@@ -75,6 +75,7 @@ public class LatLng extends Mappable implements Comparable{
     public Double distanceBetween(LatLng other, Map<String,String> options){
         return distanceBetween(this, other, options);
     }
+
     /**
      * It behaves as an alias to distance To
      * logically both means the same thing but logically both method names should
@@ -93,7 +94,7 @@ public class LatLng extends Mappable implements Comparable{
      * @param other
      * @return
      */
-    public Double heading_to(LatLng other){
+    public Double headingTo(LatLng other){
         return heading_between(this, other);
     }
 
@@ -101,7 +102,7 @@ public class LatLng extends Mappable implements Comparable{
      * Returns an array representation of the LatLng
      * @return
      */
-    public Double[] to_a(){
+    public Double[] toArray(){
         Double[] arr = new Double[2];
         arr[0] = lat;
         arr[1] = lng;
@@ -140,7 +141,7 @@ public class LatLng extends Mappable implements Comparable{
      * @param other
      * @return
      */
-    public LatLng midpoint_to(LatLng other){
+    public LatLng midpointTo(LatLng other){
         return midpoint_between(this, other, null);
     }
 
@@ -156,7 +157,7 @@ public class LatLng extends Mappable implements Comparable{
      * @param options
      * @return
      */
-    public LatLng midpoint_to(LatLng other, Map<String, String> options){
+    public LatLng midpointTo(LatLng other, Map<String, String> options){
         return midpoint_between(this, other, options);
     }
 

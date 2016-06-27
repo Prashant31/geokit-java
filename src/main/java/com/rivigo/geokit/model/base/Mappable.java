@@ -39,7 +39,7 @@ public class Mappable {
 
 
     protected LatLng midpoint_between(LatLng from, LatLng to, Map<String ,String >options){
-        Double heading = from.heading_to(to);
+        Double heading = from.headingTo(to);
         Double distance = from.distanceTo(to, options);
         return from.endpoint(heading, distance / 2, options);
     }

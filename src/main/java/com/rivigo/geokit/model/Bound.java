@@ -24,7 +24,7 @@ public class Bound {
     }
 
     public LatLng center(){
-        return sw.midpoint_to(ne);
+        return sw.midpointTo(ne);
     }
 
     /**
@@ -36,7 +36,7 @@ public class Bound {
      * @param options
      * @return
      */
-    public static Bound from_point_and_radius(LatLng point, Double radius, Map<String, String>options){
+    public static Bound fromPointAndRadius(LatLng point, Double radius, Map<String, String>options){
         LatLng p0 = point.endpoint(0d, radius, options);
         LatLng p90 = point.endpoint(90d, radius, options);
         LatLng p180 = point.endpoint(180d, radius, options);
