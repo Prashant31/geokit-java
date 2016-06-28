@@ -18,7 +18,7 @@ public class Bound {
     private LatLng ne;
     private LatLng sw;
 
-    public Bound(LatLng ne, LatLng sw){
+    public Bound(LatLng sw, LatLng ne){
         this.ne = ne;
         this.sw = sw;
     }
@@ -43,7 +43,20 @@ public class Bound {
         LatLng p270 = point.endpoint(270d, radius, options);
         LatLng southWest = new LatLng(p180.getLat(), p270.getLng());
         LatLng northEast = new LatLng(p0.getLat(), p90.getLng());
-        return new Bound(northEast, southWest);
+        return new Bound(southWest, northEast);
+    }
+
+    /**
+     *
+     * returns an instance of bounds which completely encompases the given circle
+     *
+     * @param point
+     * @param radius
+     * @param options
+     * @return
+     */
+    public static Bound fromPointAndRadius(LatLng point, Double radius){
+       return fromPointAndRadius(point,radius,null);
     }
 
     public Boolean contains(LatLng point){

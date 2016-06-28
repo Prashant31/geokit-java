@@ -107,26 +107,31 @@ public class PolygonTest extends TestCase{
     }
 
 
+    @Test
     public void testPointInsidePoly(){
         assertThat(polygon.contains(pointInside) , is(true));
     }
 
+    @Test
     public void testPointOutsidePoly(){
         assertThat(polygon.contains(pointOutside), is(false));
     }
 
+    @Test
     public void testPointsInsideComplexPoly(){
         assertThat(complexPolygon.contains(complexInsideOne), is(true));
         assertThat(complexPolygon.contains(complexInsideTwo), is(true));
         assertThat(complexPolygon.contains(complexInsideThree), is(true));
     }
 
+    @Test
     public void testPointsOutsideComplexPoly(){
         assertThat(complexPolygon.contains(complexOutsideOne), is(false));
         assertThat(complexPolygon.contains(complexOutsideTwo), is(false));
         assertThat(complexPolygon.contains(complexOutsideThree), is(false));
     }
 
+    @Test
     public void testOpenPolygon(){
         // A polygon can only exist of the last point is equal to the first
         // Otherwise, it would just be a line of points.
@@ -137,16 +142,19 @@ public class PolygonTest extends TestCase{
 
     }
 
+    @Test
     public void testCentroidForSimplePoly(){
         LatLng polygonCentroid = new LatLng(45.27463866133501, -93.41400121829719);
         assertThat(polygon.centroid().equals(polygonCentroid), is(true));
     }
 
+    @Test
     public void testCentroidForComplexPoly(){
         LatLng complexPolygonCentroid = new LatLng(45.43622702936517, -93.5352210389731);
         assertThat(complexPolygon.centroid().equals(complexPolygonCentroid), is(true));
     }
 
+    @Test
     public void testCentroidForOpenPoly(){
         LatLng openPolygonCentroid = new LatLng(44.95912726688109, -92.7068888186181);
         assertThat(openPolygon.centroid().equals(openPolygonCentroid), is(true));

@@ -1,6 +1,7 @@
 package com.rivigo.geokit.model;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,14 +19,17 @@ public class LatLngTest extends TestCase {
 
     }
 
+    @Test
     public void testSameDistance(){
         assertEquals(true, locA.equals(locA));
     }
 
+    @Test
     public void testDistanceBetweenSame(){
         assertEquals(0d, locA.distanceTo(locA));
     }
 
+    @Test
     public void testDistanceBetweenSameWithMilesAndFlat(){
         Map<String , String> options = new HashMap<>();
         options.put("formula", "flat");
