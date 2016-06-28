@@ -1,9 +1,10 @@
 package com.rivigo.geokit.model;
 
-import com.rivigo.geokit.model.LatLng;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -21,6 +22,13 @@ public class Polygon {
         this.points = points;
         if(!(points.get(0).equals(points.get(points.size() -1 )))){
             this.points.add(points.get(0));
+        }
+    }
+
+    public Polygon(LatLng[] points){
+        this.points = new ArrayList<LatLng>(Arrays.asList(points));
+        if(!(points[0].equals(points[points.length -1]))){
+            this.points.add(points[0]);
         }
     }
 
