@@ -145,7 +145,7 @@ public class GrahamScan {
 
             LatLng temp = points.get(i);
 
-            if(temp.getLng() < lowest.getLng() || (temp.getLng() == lowest.getLng() && temp.getLat() < lowest.getLat())) {
+            if(temp.getLng() < lowest.getLng() || (temp.getLng().equals(lowest.getLng()) && temp.getLat() < lowest.getLat())) {
                 lowest = temp;
             }
         }
