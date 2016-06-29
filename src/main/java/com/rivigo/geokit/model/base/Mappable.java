@@ -38,7 +38,7 @@ public class Mappable {
     }
 
 
-    protected LatLng midpoint_between(LatLng from, LatLng to, Map<String ,String >options){
+    protected LatLng midpointBetween(LatLng from, LatLng to, Map<String ,String >options){
         Double heading = from.headingTo(to);
         Double distance = from.distanceTo(to, options);
         return from.endpoint(heading, distance / 2, options);
@@ -46,14 +46,14 @@ public class Mappable {
 
 
 
-     protected Double heading_between(LatLng from, LatLng to){
+     protected Double headingBetween(LatLng from, LatLng to){
         Double degreeLng = deg2rad(to.getLng() - from.getLng());
         Double fromLat = deg2rad(from.getLat());
         Double toLat = deg2rad(to.getLat());
         Double y = Math.sin(degreeLng) * Math.cos(toLat);
         Double x = Math.cos(fromLat) * Math.sin(toLat) -
                 Math.sin(fromLat) * Math.cos(toLat) * Math.cos(degreeLng);
-        return to_heading(Math.atan2(y, x));
+        return toHeading(Math.atan2(y, x));
     }
 
     public Double distanceBetween(LatLng from, LatLng to){
@@ -144,7 +144,7 @@ public class Mappable {
         return (rad*180.0d/PI);
     }
 
-    public Double to_heading(Double rad){
+    public Double toHeading(Double rad){
         return (rad2deg(rad) + 360) % 360;
     }
 

@@ -95,7 +95,7 @@ public class LatLng extends Mappable implements Comparable{
      * @return
      */
     public Double headingTo(LatLng other){
-        return heading_between(this, other);
+        return headingBetween(this, other);
     }
 
     /**
@@ -142,7 +142,7 @@ public class LatLng extends Mappable implements Comparable{
      * @return
      */
     public LatLng midpointTo(LatLng other){
-        return midpoint_between(this, other, null);
+        return midpointBetween(this, other, null);
     }
 
     /**
@@ -158,7 +158,7 @@ public class LatLng extends Mappable implements Comparable{
      * @return
      */
     public LatLng midpointTo(LatLng other, Map<String, String> options){
-        return midpoint_between(this, other, options);
+        return midpointBetween(this, other, options);
     }
 
     @Override
